@@ -123,6 +123,7 @@ class EntityMeta(type):
 
     @property
     def db_entity(entity):
+        assert entity.__name__ in db.entities, f'Entity "{entity.__name__}" wasn\'t found in the database. Is the database bound?'
         return db.entities[entity.__name__]
 
     @property
